@@ -30,4 +30,4 @@ Now create a data volume to store Piwik config and link it to the app:
 
 Write down the database credentials for initial setup:
 
-    $ dokku config piwik
+    $ sudo dokku config piwik
