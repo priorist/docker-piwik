@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 if [ -d /var/piwik-data ]; then
     chown -R www-data:www-data /var/piwik-data
