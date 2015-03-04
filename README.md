@@ -1,9 +1,33 @@
 # docker-piwik
 
+## Build
+
 Build with
 
-    # docker build -t priorist/piwik .
+    $ sudo docker build -t priorist/piwik .
+
+
+## Deploy
 
 Ensure MySQL container is running and run with:
 
-    # docker run -d -p 80:80 -p 443:443 --link mysql:mysql --name piwik priorist/piwik
+    $ sudo docker run -d -p 80:80 --link mysql:mysql -v /var/piwik-data:/var/piwik-data --name piwik priorist/piwik
+
+You may use a data volume at /var/piwik-data for config persitence.
+
+
+## Deploy with dokku-alt
+
+After you push-deployed this app, create a database container and link it:
+
+    $ sudo dokku mariadb:create piwik-db
+    $ sudo dokku mariadb:link piwik piwik-db
+
+Now create a data volume to store Piwik config and link it to the app:
+
+    $ sudo dokku volume:create piwik-data /var/piwik-data
+    $ sudo dokku volume:link piwik piwik-data
+
+Note the database credentials for initial setup
+
+    $ dokku config piwik
