@@ -21,7 +21,6 @@ ADD http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz /tmp/G
 RUN unzip -q /tmp/piwik.zip -d /tmp && \
     gunzip /tmp/GeoLiteCity.dat.gz && \
     mv /tmp/piwik/* /var/www/html/ && \
-    mv /tmp/piwik/.[!.]* /var/www/html/ && \
     mv /tmp/GeoLiteCity.dat /var/www/html/misc/GeoIPCity.dat && \
     chown -R www-data:www-data /var/www/html && \
     rm -r /tmp/*
