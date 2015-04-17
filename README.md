@@ -1,10 +1,14 @@
 # docker-piwik
 
-## Build
+## Build or pull
 
 Build with
 
     $ sudo docker build -t priorist/piwik .
+
+or pull straight from the hub
+
+    $ sudo docker pull priorist/piwik
 
 
 ## Deploy
